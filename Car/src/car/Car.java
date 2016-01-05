@@ -37,6 +37,19 @@ public class Car {
     public Car(){
     }
     
+    public int getMaxSpeed(){               
+        return this.maxSpeed;
+    }
+    
+    public void setMaxSpeed(int setMaxSpeed){
+        this.maxSpeed = setMaxSpeed;
+        
+    }
+    
+    public void upgradeMaxSpeed(){
+        setMaxSpeed(getMaxSpeed()+50);
+    }
+    
     public void isCarOn(){
         isCarOn = true;
     }
@@ -77,32 +90,35 @@ public class Car {
     
    public void printVariables(){
        System.out.println("The max speed is: " + maxSpeed);
-       System.out.println("The min speed is: " + minSpeed);       
-       System.out.println("Car milage :"+mpg);
-       System.out.println("weigt of car :"+ weight);
-       System.out.println("No of passengers :" + noOfPassengers);
+       System.out.println("The min speed is: " + minSpeed);    
+      
    }
    
   
    
    public void upgradespeed(){
-       minSpeed = maxSpeed;
-       maxSpeed += 1;
+       //minSpeed = maxSpeed;
+       this.maxSpeed += 10;
    }
     public static void main(String[] args) {
        Car myCar = new Car();
-       System.out.println("Initial no of Passengers : " + myCar.noOfPassengers );
-       myCar.getIN();
-       myCar.getIN();
-       myCar.getIN();
-       myCar.getIN();
-       myCar.getIN();
-       myCar.getIN();
-       myCar.getOut();
-       myCar.getOut();
-       myCar.getOut();
-       myCar.getOut();
-       myCar.getOut();
+       System.out.println("My Car values");
+       myCar.printVariables();
+       System.out.println("my car max speed is : " + myCar.getMaxSpeed());
+       myCar.setMaxSpeed(200);
+       System.out.println("my car set Max speed is : " +myCar.maxSpeed );
+       Car premCar = new Car();
+       myCar.upgradespeed();
+       System.out.println("My Car values");
+       System.out.println("my car max speed is : " + myCar.getMaxSpeed());
+       myCar.printVariables();
+       System.out.println("Prem's car values");
+       premCar.printVariables();
+       System.out.println("Prem's car max speed is : " + premCar.getMaxSpeed());
+       premCar.upgradeMaxSpeed();
+       System.out.println("prem's upgraded Max speed is : " + premCar.maxSpeed);
+       
+       
         
             }
     
